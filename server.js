@@ -20,7 +20,10 @@ app.get('/', (req, res) => {
 
 app.get('/:id', (req, res) => {
     const trainer = trainers[req.params.id]
-    res.send(trainer.pokemon)
+    if(trainer){
+        return(res.send(trainer.pokemon))
+    }
+    res.send([])
 
 })
 
